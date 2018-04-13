@@ -243,4 +243,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return false;
 	}
 
+	@Override
+	public boolean editFilm(Film film) {
+		return false;
+		// TODO Auto-generated method stub
+
+	}
+
 }

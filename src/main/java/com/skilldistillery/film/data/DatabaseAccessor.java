@@ -20,5 +20,7 @@ public interface DatabaseAccessor {
 	public Film addFilm (Film film);
 	
 	public boolean deleteFilm (Film film);
+
+	public boolean editFilm(Film film);
 	
 }
