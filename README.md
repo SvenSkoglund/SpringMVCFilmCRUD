@@ -4,7 +4,7 @@
 
 #### How this project works
 
-### Lessons Learned
+##### Lessons Learned
 
-### If we had more time, we would have
+##### If we had more time, we would have
 
