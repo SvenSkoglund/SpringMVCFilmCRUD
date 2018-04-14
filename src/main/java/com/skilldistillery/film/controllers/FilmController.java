@@ -43,6 +43,14 @@ public class FilmController {
 		mv.addObject("film", dao.getFilmById(film.getId()));
 		return mv;
 	}
+	@RequestMapping(path="filmById.do", method=RequestMethod.GET)
+	public ModelAndView findFilmById(int filmID) {
+		ModelAndView mv = new ModelAndView();
+		Film film = dao.getFilmById(filmID);
+		mv.setViewName("WEB-INF/result.jsp");
+		mv.addObject("film", dao.getFilmById(film.getId()));
+		return mv;
+	}
 	
 	public void setDao(DatabaseAccessorObject dao) {
 		this.dao = dao;
