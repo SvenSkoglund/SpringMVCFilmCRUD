@@ -70,9 +70,13 @@
 	<c:if test="${empty film }">
 		<h2>Film Not Found</h2>
 	</c:if>
-
+	
+	<a href="editFilm.html"><button name="edit" type="submit"
+			value="edit" >Edit Film</button></a>
+			
 	<a href="index.html"><button name="goHome" type="submit"
 			value="goHome" >Go Back to Homepage</button></a>
+
 
 </body>
 </html>
