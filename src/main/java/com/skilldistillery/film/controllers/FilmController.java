@@ -26,8 +26,8 @@ public class FilmController {
 		Film film = new Film(title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating);
 		ModelAndView mv = new ModelAndView();
 		dao.addFilm(film);
-		mv.setViewName("/result.jsp");
-		mv.addObject("film", dao.getFilmById(film.getId()));
+		mv.setViewName("WEB-INF/result.jsp");
+		mv.addObject("film", film);
 		return mv;
 	}
 
@@ -35,7 +35,7 @@ public class FilmController {
 	public ModelAndView deleteFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
 		dao.deleteFilm(film);
-		mv.setViewName("/delete.jsp");
+		mv.setViewName("WEB-INF/delete.jsp");
 		mv.addObject("film", dao.getFilmById(film.getId()));
 		return mv;
 	}
