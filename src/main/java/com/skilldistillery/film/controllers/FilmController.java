@@ -1,12 +1,11 @@
 package com.skilldistillery.film.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.junit.runners.Parameterized.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,9 +19,8 @@ public class FilmController {
 
 	@Autowired
 	DatabaseAccessorObject dao;
-	
 
-	@RequestMapping(path="addFilm.do", method=RequestMethod.GET)
+	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET)
 	public ModelAndView addFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
 		dao.addFilm(film);
@@ -30,9 +28,8 @@ public class FilmController {
 		mv.addObject("film", dao.getFilmById(film.getId()));
 		return mv;
 	}
-	
 
-	@RequestMapping(path="deleteFilm.do", method=RequestMethod.GET)
+	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.GET)
 	public ModelAndView deleteFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
 		dao.deleteFilm(film);
@@ -40,8 +37,8 @@ public class FilmController {
 		mv.addObject("film", dao.getFilmById(film.getId()));
 		return mv;
 	}
-	
-	@RequestMapping(path="editFilm.do", method=RequestMethod.GET)
+
+	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET)
 	public ModelAndView editFilm(Film film) {
 		ModelAndView mv = new ModelAndView();
 		dao.editFilm(film);
@@ -49,7 +46,8 @@ public class FilmController {
 		mv.addObject("film", dao.getFilmById(film.getId()));
 		return mv;
 	}
-	@RequestMapping(path="filmById.do", method=RequestMethod.GET)
+
+	@RequestMapping(path = "filmById.do", method = RequestMethod.GET)
 	public ModelAndView findFilmById(int filmID) {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.getFilmById(filmID);
@@ -57,15 +55,23 @@ public class FilmController {
 		mv.addObject("film", film);
 		return mv;
 	}
-	@RequestMapping(path="filmByKeyword.do", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/filmByKeyword.do", method = RequestMethod.GET)
 	public ModelAndView findFilmByKeyword(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
 		List<Film> films = dao.getFilmByKeyword(keyword);
+		Map<Integer, Film> filmMap = new HashMap<>();
+
+		for (Film film : films) {
+			filmMap.put(film.getId(), film);
+			
+		}
+
 		mv.setViewName("WEB-INF/resultKeyword.jsp");
-		mv.addObject("film" , films);
+		mv.addObject("film", films);
 		return mv;
 	}
-	
+
 	public void setDao(DatabaseAccessorObject dao) {
 		this.dao = dao;
 	}

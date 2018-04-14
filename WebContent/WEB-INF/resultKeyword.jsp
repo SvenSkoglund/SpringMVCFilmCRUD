@@ -10,6 +10,7 @@
 </head>
 <body>
 	<h1>Film Found</h1>
+	<c:if test="${empty films }">No films found</c:if>
 	<c:forEach items="${films}" var="film">
 		<br>
 		<table>
