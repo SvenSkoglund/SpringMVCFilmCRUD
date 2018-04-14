@@ -224,9 +224,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	public boolean deleteFilm(Film film) {
 		int newActorId = 0;
-		
-		if (film != null) {
-			
+
 		try {
 			String sql = "delete from film where id = ?";
 			Connection conn = DriverManager.getConnection(URL, user, pass);
@@ -240,7 +238,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
-			}
 		}
 		System.out.println("Unable to delete film");
 		return false;
@@ -248,9 +245,34 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	@Override
 	public boolean editFilm(Film film) {
-		
+
+		try {
+			//									  1	               2                 3                4                   5                6           7                    8            9                      10           11   
+			String sql = "update film set title = ?, description = ?, release_year = ?, language_id = ?, rental_duration =?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ? , special_features = ? where id = ?)";
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			stmt.setString(1, film.getTitle());
+			stmt.setString(2, film.getDescription());
+			stmt.setInt(3, film.getReleaseYear());
+			stmt.setInt(4, film.getLanguageId());
+			stmt.setInt(5, film.getRentalDuration());
+			stmt.setDouble(6, film.getRentalRate());
+			stmt.setInt(7, film.getLength());
+			stmt.setDouble(8, film.getReplacementCost());
+			stmt.setString(9, film.getRating());
+			stmt.setString(10, film.getSpecialFeatures());
+			stmt.setInt(11, film.getId());
+			int updateCount = stmt.executeUpdate();
+			if (updateCount == 1) {
+				ResultSet generatedKeys = stmt.getGeneratedKeys();
+				if (generatedKeys.next()) {
+					return true;
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return false;
-		// TODO Auto-generated method stub
 
 	}
 
