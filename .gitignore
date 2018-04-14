@@ -5,8 +5,5 @@ target
 gradle
 gradlew
 .gradle
-.gradle/4.3/fileHashes/fileHashes.bin
-.gradle/4.3/fileHashes/fileHashes.lock
-.gradle/4.3/taskHistory/taskHistory.bin
-.gradle/4.3/taskHistory/taskHistory.lock
-.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.bin
+.lock
