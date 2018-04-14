@@ -224,7 +224,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 	public boolean deleteFilm(Film film) {
 		int newActorId = 0;
-
+		
+		if (film != null) {
+			
 		try {
 			String sql = "delete from film where id = ?";
 			Connection conn = DriverManager.getConnection(URL, user, pass);
@@ -238,6 +240,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			}
 		}
 		System.out.println("Unable to delete film");
 		return false;

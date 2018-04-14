@@ -72,7 +72,7 @@
 	</c:if>
 
 	<a href="index.html"><button name="goHome" type="submit"
-			value="goHome">Go Back to Homepage</button></a>
+			value="goHome" >Go Back to Homepage</button></a>
 
 </body>
 </html>

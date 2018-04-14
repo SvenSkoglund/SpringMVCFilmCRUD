@@ -11,7 +11,7 @@
 <body>
 	<c:if test="${empty films }">No films found</c:if>
 	<c:forEach items="${films}" var="film">
-	<h1>Film Found</h1>
+		<h1>Film Found</h1>
 		<br>
 		<table>
 			<tr>
@@ -66,11 +66,13 @@
 
 	</c:forEach>
 
-	<form action="deleteFilm">
-	<input  type="submit" name="Delete Film"> </form>
-	
-	<form action="returnHome">
-	<input  type="submit" name="Return Home"> </form>
-	
+	<form action="deleteFilm.do">
+		Which Film ID would you like to delete<input type="text" name="filmId">
+		<button name="delete" type="submit" value="delete">Delete</button>
+	</form>
+
+	<a href="index.html"><button name="goHome" type="submit"
+			value="goHome">Go Back to Homepage</button></a>
+
 </body>
 </html>

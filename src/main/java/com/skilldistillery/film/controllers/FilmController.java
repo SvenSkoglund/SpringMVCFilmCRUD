@@ -27,7 +27,7 @@ public class FilmController {
 				replacementCost, rating);
 		ModelAndView mv = new ModelAndView();
 		film = dao.addFilm(film);
-		mv.setViewName("WEB-INF/result.jsp");
+		mv.setViewName("WEB-INF/views/result.jsp");
 		mv.addObject("film", film);
 		return mv;
 	}
@@ -36,7 +36,7 @@ public class FilmController {
 	public ModelAndView deleteFilm(int filmId) {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.getFilmById(filmId);
-		mv.setViewName("WEB-INF/deletedResult.jsp");
+		mv.setViewName("WEB-INF/views/deletedResult.jsp");
 		mv.addObject("film", film);
 		boolean ifDeleted = dao.deleteFilm(film);
 		mv.addObject("ifDeleted", ifDeleted);
@@ -56,7 +56,7 @@ public class FilmController {
 	public ModelAndView findFilmById(int filmID) {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.getFilmById(filmID);
-		mv.setViewName("WEB-INF/result.jsp");
+		mv.setViewName("WEB-INF/views/result.jsp");
 		mv.addObject("film", film);
 		return mv;
 	}
@@ -67,7 +67,7 @@ public class FilmController {
 		List<Film> films = dao.getFilmByKeyword(keyword);
 
 		mv.addObject("films", films);
-		mv.setViewName("WEB-INF/resultKeyword.jsp");
+		mv.setViewName("WEB-INF/views/resultKeyword.jsp");
 		return mv;
 	}
 
