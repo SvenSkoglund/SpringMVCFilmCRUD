@@ -9,6 +9,9 @@
 <title>Result</title>
 </head>
 <body>
+	<c:if test="${ filmEdited }">
+		<h1>Film Edited</h1>
+		</c:if>
 	<c:if test="${! empty film }">
 		<h1>Film Found</h1>
 		<table>
@@ -70,10 +73,12 @@
 	<c:if test="${empty film }">
 		<h2>Film Not Found</h2>
 	</c:if>
-	
-	<a href="editFilm.html"><button name="edit" type="submit"
-			value="edit" >Edit Film</button></a>
-			
+	<form>
+		<input type="hidden" name="varname" value="12345" /> <a
+			href="editFilm.html"><button name="edit" type="submit"
+				value="edit">Edit Film</button></a>
+	</form>
+
 	<a href="index.html"><button name="goHome" type="submit"
 			value="goHome" >Go Back to Homepage</button></a>
 
