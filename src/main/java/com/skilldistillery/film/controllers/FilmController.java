@@ -21,7 +21,9 @@ public class FilmController {
 	DatabaseAccessorObject dao;
 
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET)
-	public ModelAndView addFilm(Film film) {
+	public ModelAndView addFilm(String title, String description, int releaseYear, int languageId, int rentalDuration,
+            double rentalRate, int length, double replacementCost, String rating) {
+		Film film = new Film(title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating);
 		ModelAndView mv = new ModelAndView();
 		dao.addFilm(film);
 		mv.setViewName("/result.jsp");
