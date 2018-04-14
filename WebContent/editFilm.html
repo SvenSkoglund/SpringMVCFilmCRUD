@@ -7,16 +7,6 @@
 <body>
 	<h3>Edit Film</h3>
 
-	<!--   		this.title = title;
-		this.description = description;
-		this.releaseYear = releaseYear;
-		this.languageId = languageId;
-		this.rentalDuration = rentalDuration;
-		this.rentalRate = rentalRate;
-		this.length = length;
-		this.replacementCost = replacementCost;
-		this.rating = rating; -->
-
 	<form action="editFilm.do" method="GET">
 				<table>
 			<tr>
@@ -64,16 +54,6 @@
 				<td>Rating</td>
 				<td>${film.rating }</td>
 				<td>Edit Rating: <input type="text" name="rating" /></td>
-			</tr>
-			<tr>
-				<td>Special Features</td>
-				<td>${film.specialFeatures }</td>
-				<td>Edit Special Features: <input type="text" name="specialFeatures" /></td>
-			</tr>
-			<tr>
-				<td>Cast</td>
-				<td>${film.cast }</td>
-				<td>Edit Cast: <input type="text" name="cast" /></td>
 			</tr>
 		</table>
 		<input type="submit" value="Edit Film" />
