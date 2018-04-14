@@ -38,7 +38,8 @@ public class FilmController {
 		Film film = dao.getFilmById(filmId);
 		mv.setViewName("WEB-INF/deletedResult.jsp");
 		mv.addObject("film", film);
-		dao.deleteFilm(film);
+		boolean ifDeleted = dao.deleteFilm(film);
+		mv.addObject("ifDeleted", ifDeleted);
 		return mv;
 	}
 

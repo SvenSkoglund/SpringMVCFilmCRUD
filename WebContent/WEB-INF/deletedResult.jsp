@@ -14,6 +14,7 @@
 
 <body>
 
+<c:if test="${ifDeleted }">
 <h1>Deleted Film:</h1>
 	<table>
 
@@ -77,6 +78,7 @@
 			<td>${film.cast }</td>
 		</tr>
 	</table>
-
+</c:if>
+<c:if test="${not ifDeleted }"><h1>Could not delete film</h1></c:if>
 </body>
 </html>
