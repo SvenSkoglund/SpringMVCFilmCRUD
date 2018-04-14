@@ -2,10 +2,14 @@ package com.skilldistillery.film.controllers;
 
 import java.util.List;
 
+import org.junit.runners.Parameterized.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.DatabaseAccessorObject;
@@ -54,9 +58,9 @@ public class FilmController {
 		return mv;
 	}
 	@RequestMapping(path="filmByKeyword.do", method=RequestMethod.GET)
-	public ModelAndView findFilmByKeyword(String filmKeyWord) {
+	public ModelAndView findFilmByKeyword(@RequestParam("keyword") String keyword) {
 		ModelAndView mv = new ModelAndView();
-		List<Film> films = dao.getFilmByKeyword(filmKeyWord);
+		List<Film> films = dao.getFilmByKeyword(keyword);
 		mv.setViewName("WEB-INF/resultKeyword.jsp");
 		mv.addObject("film" , films);
 		return mv;
