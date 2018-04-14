@@ -60,12 +60,16 @@
 			<td>${film.cast }</td>
 		</tr>
 	</table>
-	
+
 	<form action="deleteFilm">
-	<input  type="submit" name="Delete Film"> </form>
-	
+		Which Film ID would you like to delete<input type="text"
+			name="filmId">
+		<button name="delete" type="submit" value="delete">Delete</button>
+	</form>
+
 	<form action="returnHome">
-	<input  type="submit" name="Return Home"> </form>
-	
+		<input type="submit" name="Return Home">
+	</form>
+
 </body>
 </html>
