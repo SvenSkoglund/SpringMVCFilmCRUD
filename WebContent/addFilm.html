@@ -5,9 +5,9 @@
 <title>Add Film</title>
 </head>
 <body>
-  <h3>Find Films by ID</h3>
-  
-<!--   		this.title = title;
+	<h3>Add Film to Database</h3>
+
+	<!--   		this.title = title;
 		this.description = description;
 		this.releaseYear = releaseYear;
 		this.languageId = languageId;
@@ -16,19 +16,17 @@
 		this.length = length;
 		this.replacementCost = replacementCost;
 		this.rating = rating; -->
-  
-  <form action="addFilm.do" method="GET">
-    Film ID:
-    <input type="text" name="title"/> 
-       Description:  <input type="text" name="description"/> 
-       Release Year:  <input type="text" name="releaseYear"/> 
-       Language ID: <input type="text" name="languageId"/> 
-       Rental Duration: <input type="text" name="rentalDuration"/> 
-       Rental Rate: <input type="text" name="rentalRate"/> 
-       Length:  <input type="text" name="length"/> 
-       Replacement Cost: <input type="text" name="replacementCost"/> 
-       Rating:  <input type="text" name="rating"/> 
-    <input type="submit" value="Add Film" />
-  </form>
+
+	<form action="addFilm.do" method="GET">
+		Title: <input type="text" name="title" /> Description: <input
+			type="text" name="description" /> Release Year: <input type="text"
+			name="releaseYear" /> Language ID: <input type="text"
+			name="languageId" /> Rental Duration: <input type="text"
+			name="rentalDuration" /> Rental Rate: <input type="text"
+			name="rentalRate" /> Length: <input type="text" name="length" />
+		Replacement Cost: <input type="text" name="replacementCost" /> Rating:
+		<input type="text" name="rating" /> <input type="submit"
+			value="Add Film" />
+	</form>
 </body>
 </html>
