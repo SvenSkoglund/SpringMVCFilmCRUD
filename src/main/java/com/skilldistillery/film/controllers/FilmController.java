@@ -33,7 +33,7 @@ public class FilmController {
 	}
 
 	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.GET)
-	public ModelAndView deleteFilm(int filmId) {
+	public ModelAndView deleteFilm(int filmId) { 
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.getFilmById(filmId);
 		mv.setViewName("WEB-INF/views/deletedResult.jsp");
@@ -41,7 +41,7 @@ public class FilmController {
 		boolean ifDeleted = dao.deleteFilm(film);
 		mv.addObject("ifDeleted", ifDeleted);
 		return mv;
-	}
+	} 
 
 	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET)
 	public ModelAndView editFilm(Film film) {
