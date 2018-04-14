@@ -11,7 +11,7 @@
 <title>Delete</title>
 </head>
 <body>
-	<form:form action="delete.do" method="POST" modelAttribute="film">
+	<form:form action="deleteFilm.do" method="POST" modelAttribute="film">
 		<form:label path="deleteId">Delete Film by ID:</form:label>
 		<form:input path="deleteId" />
 		<form:errors path="deleteId" />

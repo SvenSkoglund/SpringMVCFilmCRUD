@@ -13,6 +13,8 @@
 </head>
 
 <body>
+
+<h1>Deleted Film:</h1>
 	<table>
 
 		<tr>
@@ -37,7 +39,7 @@
 
 		<tr>
 			<td>Language ID</td>
-			<td>${film.languageYear }</td>
+			<td>${film.languageId }</td>
 		</tr>
 
 		<tr>

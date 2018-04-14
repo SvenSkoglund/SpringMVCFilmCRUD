@@ -61,7 +61,7 @@
 		</tr>
 	</table>
 
-	<form action="deleteFilm">
+	<form action="deleteFilm.do">
 		Which Film ID would you like to delete<input type="text"
 			name="filmId">
 		<button name="delete" type="submit" value="delete">Delete</button>

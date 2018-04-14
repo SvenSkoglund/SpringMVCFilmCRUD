@@ -22,21 +22,23 @@ public class FilmController {
 
 	@RequestMapping(path = "addFilm.do", method = RequestMethod.GET)
 	public ModelAndView addFilm(String title, String description, int releaseYear, int languageId, int rentalDuration,
-            double rentalRate, int length, double replacementCost, String rating) {
-		Film film = new Film(title, description, releaseYear, languageId, rentalDuration, rentalRate, length, replacementCost, rating);
+			double rentalRate, int length, double replacementCost, String rating) {
+		Film film = new Film(title, description, releaseYear, languageId, rentalDuration, rentalRate, length,
+				replacementCost, rating);
 		ModelAndView mv = new ModelAndView();
-		dao.addFilm(film);
+		film = dao.addFilm(film);
 		mv.setViewName("WEB-INF/result.jsp");
 		mv.addObject("film", film);
 		return mv;
 	}
 
 	@RequestMapping(path = "deleteFilm.do", method = RequestMethod.GET)
-	public ModelAndView deleteFilm(Film film) {
+	public ModelAndView deleteFilm(int filmId) {
 		ModelAndView mv = new ModelAndView();
+		Film film = dao.getFilmById(filmId);
+		mv.setViewName("WEB-INF/deletedResult.jsp");
+		mv.addObject("film", film);
 		dao.deleteFilm(film);
-		mv.setViewName("WEB-INF/delete.jsp");
-		mv.addObject("film", dao.getFilmById(film.getId()));
 		return mv;
 	}
 
