@@ -44,17 +44,29 @@ public class FilmController {
 	} 
 
 	@RequestMapping(path = "editFilm.do", method = RequestMethod.GET)
-	public ModelAndView editFilm(String title, String description, int releaseYear, int languageId, int rentalDuration,
-			double rentalRate, int length, double replacementCost, String rating) {
-		Film film = new Film(title, description, releaseYear, languageId, rentalDuration, rentalRate, length,
-				replacementCost, rating);
+	public ModelAndView editFilm(int id) {
+		Film film = dao.getFilmById(id);
 		ModelAndView mv = new ModelAndView();
-		boolean filmEdited = dao.editFilm(film);
-		mv.setViewName("WEB-INF/views/result.jsp");
+//		boolean filmEdited = dao.editFilm(film);
+		mv.setViewName("WEB-INF/views/editFilm.jsp");
 		mv.addObject("film", film);
-		mv.addObject("filmEdited", filmEdited);
+//		mv.addObject("filmEdited", filmEdited);
 		return mv;
 	}
+	
+    @RequestMapping(path = "filmEdited.do", method = RequestMethod.GET)
+    public ModelAndView editFilm(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
+            double rentalRate, int length, double replacementCost, String rating) {
+        Film film = new Film(title, description, releaseYear, languageId, rentalDuration, rentalRate, length,
+                replacementCost, rating);
+        film.setId(id);
+        ModelAndView mv = new ModelAndView();
+        boolean filmEdited = dao.editFilm(film);
+        mv.setViewName("WEB-INF/views/result.jsp");
+        mv.addObject("film", film);
+        mv.addObject("filmEdited", filmEdited);
+        return mv;
+    }
 
 	@RequestMapping(path = "filmById.do", method = RequestMethod.GET)
 	public ModelAndView findFilmById(int filmID) {

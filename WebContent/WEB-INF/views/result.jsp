@@ -11,7 +11,7 @@
 <body>
 	<c:if test="${ filmEdited }">
 		<h1>Film Edited</h1>
-		</c:if>
+	</c:if>
 	<c:if test="${! empty film }">
 		<h1>Film Found</h1>
 		<table>
@@ -73,14 +73,14 @@
 	<c:if test="${empty film }">
 		<h2>Film Not Found</h2>
 	</c:if>
-	<%-- <form>
-		<input type="hidden" name="varname" value="${film.id }" /> --%> <a
-			href="editFilm.html"><button name="edit" type="submit"
-				value="${film.id }">Edit Film</button></a>
-	</form><!--  -->
+	<form action="editFilm.do" >
+		<input type="text" name="id"/>
+		<input type="submit" value="Edit Film"/> 
+	</form>
+	<!--  -->
 
 	<a href="index.html"><button name="goHome" type="submit"
-			value="goHome" >Go Back to Homepage</button></a>
+			value="goHome">Go Back to Homepage</button></a>
 
 
 </body>

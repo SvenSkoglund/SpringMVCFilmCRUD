@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +11,8 @@
 <body>
 	<h3>Edit Film</h3>
 
-	<form action="editFilm.do" method="GET">
-				<table>
+	<form action="filmEdited.do" method="GET">
+		<table>
 			<tr>
 				<td>Title</td>
 				<td>${film.title }</td>
@@ -28,12 +32,13 @@
 				<td>Language ID</td>
 				<td>${film.languageId }</td>
 				<td>Edit Language ID: <input type="text" name="languageId" /></td>
-				
+
 			</tr>
 			<tr>
 				<td>Rental Duration</td>
 				<td>${film.rentalDuration }</td>
-				<td>Edit Rental Duration: <input type="text" name="rentalDuration" /></td>
+				<td>Edit Rental Duration: <input type="text"
+					name="rentalDuration" /></td>
 			</tr>
 			<tr>
 				<td>Rental Rate</td>
@@ -48,7 +53,8 @@
 			<tr>
 				<td>Replacement Cost</td>
 				<td>${film.replacementCost }</td>
-				<td>Edit Replacement Cost: <input type="text" name="replacementCost" /></td>
+				<td>Edit Replacement Cost: <input type="text"
+					name="replacementCost" /></td>
 			</tr>
 			<tr>
 				<td>Rating</td>
@@ -56,6 +62,7 @@
 				<td>Edit Rating: <input type="text" name="rating" /></td>
 			</tr>
 		</table>
+		<input type="hidden" name="id" value="${film.id}"/>
 		<input type="submit" value="Edit Film" />
 	</form>
 </body>

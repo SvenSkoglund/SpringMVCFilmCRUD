@@ -248,11 +248,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 		try {
 			// 1 2 3 4 5 6 7 8 9 10
-			String sql = "update film set title = ?, description = ?, release_year = ?, language_id = ?, rental_duration =?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ? where id = ?)";
+			String sql = "update film set title = ?, description = ?, release_year = ?, language_id = ?, rental_duration =?, rental_rate = ?, length = ?, replacement_cost = ?, rating = ? where id = ?";
 			Connection conn = DriverManager.getConnection(URL, user, pass);
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, "\"" + film.getTitle() + "\"");
-			stmt.setString(2, "\"" + film.getDescription() + "\"");
+			stmt.setString(1, film.getTitle() );
+			stmt.setString(2, film.getDescription() );
 			stmt.setInt(3, film.getReleaseYear());
 			stmt.setInt(4, film.getLanguageId());
 			stmt.setInt(5, film.getRentalDuration());
@@ -265,9 +265,14 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			if (updateCount == 1) {
 				ResultSet generatedKeys = stmt.getGeneratedKeys();
 				if (generatedKeys.next()) {
+					generatedKeys.close();
 					return true;
 				}
 			}
+			
+			stmt.close();
+			conn.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
