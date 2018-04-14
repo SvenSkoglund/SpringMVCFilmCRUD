@@ -63,6 +63,8 @@
 				<td>${film.cast }</td>
 			</tr>
 		</table>
+		<a href="editFilm.html"><button name="edit" type="submit"
+			value="edit" >Edit Film</button></a>
 
 	</c:forEach>
 
