@@ -50,7 +50,7 @@ public class FilmController {
 		ModelAndView mv = new ModelAndView();
 		Film film = dao.getFilmById(filmID);
 		mv.setViewName("WEB-INF/result.jsp");
-		mv.addObject("film", dao.getFilmById(film.getId()));
+		mv.addObject("film", film);
 		return mv;
 	}
 	@RequestMapping(path="filmByKeyWord.do", method=RequestMethod.GET)
