@@ -73,11 +73,11 @@
 	<c:if test="${empty film }">
 		<h2>Film Not Found</h2>
 	</c:if>
-	<form>
-		<input type="hidden" name="varname" value="12345" /> <a
+	<%-- <form>
+		<input type="hidden" name="varname" value="${film.id }" /> --%> <a
 			href="editFilm.html"><button name="edit" type="submit"
-				value="edit">Edit Film</button></a>
-	</form>
+				value="${film.id }">Edit Film</button></a>
+	</form><!--  -->
 
 	<a href="index.html"><button name="goHome" type="submit"
 			value="goHome" >Go Back to Homepage</button></a>
