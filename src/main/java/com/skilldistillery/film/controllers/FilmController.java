@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.film.data.DatabaseAccessorObject;
@@ -84,6 +85,13 @@ public class FilmController {
 
 		mv.addObject("films", films);
 		mv.setViewName("WEB-INF/views/resultKeyword.jsp");
+		return mv;
+	}
+	@RequestMapping("*")
+	@ResponseBody
+	public ModelAndView fallbackMethod(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/views/fallback.jsp");
 		return mv;
 	}
 

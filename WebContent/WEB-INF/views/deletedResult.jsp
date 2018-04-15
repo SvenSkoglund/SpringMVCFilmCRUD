@@ -82,7 +82,7 @@
 	<c:if test="${not ifDeleted }">
 		<h1>Could not delete film</h1>
 	</c:if>
-	<a href="index.html"><button name="goHome" type="submit"
+	<a href="index.html"><button name="goHome" type="button" class="btn btn-primary btn-lg"
 			value="goHome">Go Back to Homepage</button></a>
 </body>
 </html>

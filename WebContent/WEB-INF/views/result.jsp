@@ -73,15 +73,15 @@
 	<c:if test="${empty film }">
 		<h2>Film Not Found</h2>
 	</c:if>
-	<form action="editFilm.do" >
-		<input type="text" name="id"/>
-		<input type="submit" value="Edit Film"/> 
+	<form action="editFilm.do">
+	What is the ID of the film you would like to edit
+		<input type="text" name="id" /> <input type="submit" value="Edit Film" />
 	</form>
 	<!--  -->
 
-	<a href="index.html"><button name="goHome" type="submit"
-			value="goHome">Go Back to Homepage</button></a>
-
+	<a href="index.html"><button name="goHome" type="button"
+			class="btn btn-primary btn-lg" value="goHome">Go Back to
+			Homepage</button></a>
 
 </body>
 </html>
