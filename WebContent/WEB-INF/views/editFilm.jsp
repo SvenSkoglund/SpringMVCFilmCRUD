@@ -59,11 +59,17 @@
 			<tr>
 				<td>Rating</td>
 				<td>${film.rating }</td>
-				<td>Edit Rating: <input type="text" name="rating" /></td>
+				<td>Edit Rating: <select name=“rating”>
+						<option value=“G”>G</option>
+						<option value=“PG”>PG</option>
+						<option value=“PG13”>PG13</option>
+						<option value=“R”>R</option>
+						<option value=“NC17”>NC17</option>
+				</select></td>
 			</tr>
 		</table>
-		<input type="hidden" name="id" value="${film.id}"/>
-		<input type="submit" value="Edit Film" />
+		<input type="hidden" name="id" value="${film.id}" /> <input
+			type="submit" value="Edit Film" />
 	</form>
 </body>
 </html>
