@@ -15,11 +15,12 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private List <Actor> cast;
-	
+	private Category category;
 	
 	
 
 
+	
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String specialFeatures,
 			List<Actor> cast) {
@@ -148,7 +149,13 @@ public class Film {
 		this.title = title;
 	}
 
-
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	
 	public String getDescription() {
 		return description;
 	}

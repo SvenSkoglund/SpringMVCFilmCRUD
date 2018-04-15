@@ -60,6 +60,10 @@
 				<td>${film.specialFeatures }</td>
 			</tr>
 			<tr>
+				<td>Category</td>
+				<td>${film.category }</td>
+			</tr>
+			<tr>
 				<td>Cast</td>
 				<td>${film.cast }</td>
 			</tr>

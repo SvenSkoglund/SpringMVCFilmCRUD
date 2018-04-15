@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import com.skilldistillery.film.entities.Category;
+ 
 
 import com.skilldistillery.film.entities.Actor;
 import com.skilldistillery.film.entities.Film;
@@ -74,6 +76,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				Language languages = getFilmsLanguage(filmId);
 				film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate, length,
 						replacementCost, rating, specialFeatures, cast);
+				Category category = getCategoryByFilmId(id);
+				film.setCategory(category);
 			}
 			rs.close();
 			stmt.close();
@@ -112,6 +116,30 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		}
 		return actor;
 	}
+	
+	public Category getCategoryByFilmId(int filmId) {
+		Category category = null;
+		String sql = "select c.id, c.name from category c join film_category fc on fc.category_id = c.id join film f on f.id = fc.film_id where f.id = ?";
+		try {
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setInt(1, filmId);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				int id = rs.getInt(1);
+				String name = rs.getString(2);
+				category = new Category(id, name);
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return category;
+	}
 
 	@Override
 	public List<Film> getFilmByKeyword(String keyword) {
@@ -142,6 +170,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 
 				Film film = new Film(id, title, description, releaseYear, languageId, rentalDuration, rentalRate,
 						length, replacementCost, rating, specialFeatures, cast);
+				Category category = getCategoryByFilmId(id);
+				film.setCategory(category);
 				films.add(film);
 			}
 			rs.close();
