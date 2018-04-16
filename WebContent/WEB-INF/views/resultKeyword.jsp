@@ -63,18 +63,23 @@
 				<td>${film.cast }</td>
 			</tr>
 		</table>
-		<a href="editFilm.html"><button name="edit" type="submit"
-			value="edit" >Edit Film</button></a>
+
+		<form action="deleteFilm.do">
+			Which Film ID would you like to delete<input type="text"
+				name="filmId">
+			<button name="delete" type="submit" value="delete">Delete</button>
+		</form>
+		<form action="editFilm.do">
+			What is the ID of the film you would like to edit <input type="text"
+				name="id" /> <input type="submit" value="Edit Film" />
+		</form>
 
 	</c:forEach>
 
-	<form action="deleteFilm.do">
-		Which Film ID would you like to delete<input type="text" name="filmId">
-		<button name="delete" type="submit" value="delete">Delete</button>
-	</form>
 
-	<a href="index.html"><button name="goHome" type="submit"
-			value="goHome">Go Back to Homepage</button></a>
+	<a href="index.html"><button name="goHome" type="button"
+			class="btn btn-primary btn-lg" value="goHome">Go Back to
+			Homepage</button></a>
 
 </body>
 </html>
