@@ -7,3 +7,4 @@ gradlew
 .gradle
 .bin
 .lock
+*.war
